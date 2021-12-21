@@ -1,17 +1,29 @@
-from turtle import getturtle, getscreen
+from turtle import Screen, Turtle
 import random
-tw = getturtle()
-tw.shape("turtle")
-tw.color("green")
-colors = ["blue", "lime", "red", "dark magenta", "gold", "magenta", "dark green", "maroon"]
-direction = [0, 90, 180, 270]
 
-for _ in range(200):
-    tw.speed("fastest")
-    tw.pensize(20)
-    tw.width(7)
-    tw.color(random.choice(colors))
-    tw.forward(20)
-    tw.setheading(random.choice(direction))
-screen = getscreen()
+tim = Turtle()
+tim.shape("turtle")
+screen = Screen()
+screen.colormode(255)
+
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    color = (r, g, b)
+    return color
+
+
+direction = [0, 90, 180, 270]
+tim.speed(0)
+tim.pensize(10)
+
+for i in range(200):
+    tim.forward(30)
+    # tim.color(random.random(), random.random(), random.random())
+    tim.color(random_color())
+    dirn = random.choice(direction)
+    tim.setheading(dirn)
+
 screen.exitonclick()
