@@ -14,14 +14,17 @@ def random_color():
     return color
 
 
-ts.speed("fast")
+ts.speed("fastest")
 
 
-for _ in range(200):
-    ts.circle(100)
-    ts.color(random_color())
-    current_heading = ts.heading()
-    ts.setheading(current_heading + 10)
+def draw_spirography(set_degree):
+    for _ in range(int(360/set_degree)):
+        ts.circle(50)
+        ts.color(random_color())
+        ts.setheading(ts.heading() + set_degree)
+
+
+draw_spirography(5)
 
 screen = t.Screen()
 screen.exitonclick()
